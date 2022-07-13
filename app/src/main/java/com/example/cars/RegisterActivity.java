@@ -52,10 +52,12 @@ public class RegisterActivity extends AppCompatActivity {
         autoCompleteTextView = findViewById(R.id.userCountry_field);
         confirmButton = findViewById(R.id.confirmReg_button);
 
+        //test
+
 
         //функционал для стран
         ArrayList<Country> countries = new ArrayList<>();
-        int countryImage_list[] = new int[]{R.drawable.ic_launcher_background, R.drawable.ic_launcher_background};
+        int countryImage_list[] = new int[]{R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_background};
         String countryName_list[] = new String[]{"Шри-Ланка", "Шри-ланка"};
         for (int i = 0; i < countryName_list.length; i++) {
             countries.add(new Country(countryName_list[i], countryImage_list[i]));
