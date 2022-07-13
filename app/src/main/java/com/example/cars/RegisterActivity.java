@@ -6,9 +6,11 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -52,13 +54,22 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         //функционал для стран
-        ArrayList<String> countries = new ArrayList<>();
-        String arr[] = new String[]{"dad", "sda","dad", "sda","dad", "sda","dad", "sda","dad", "sda","dad", "sda","dad", "sda","dad", "sda","dad", "sda","dad", "sda",};
-        for (int i = 0; i < arr.length; i++) {
-            countries.add(arr[i]);
+        ArrayList<Country> countries = new ArrayList<>();
+        int countryImage_list[] = new int[]{R.drawable.ic_launcher_background, R.drawable.ic_launcher_background};
+        String countryName_list[] = new String[]{"Шри-Ланка", "Шри-ланка"};
+        for (int i = 0; i < countryName_list.length; i++) {
+            countries.add(new Country(countryName_list[i], countryImage_list[i]));
         }
-        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), R.layout.list, R.id.list_1, countries);
+
+        ArrayList<Country> a = new ArrayList<>();
+        a.add(new Country("ada", R.drawable.ic_launcher_background));
+
+        ArrayAdapter adapter = new CountryAdapter(getApplicationContext(), R.layout.list, R.id.list_1, countries);
+
         ((MaterialAutoCompleteTextView) textInputLayout.getEditText()).setAdapter(adapter);
+//        autoCompleteTextView.setAdapter(adapter);
+          Log.i("TAG","TEST");
+
 
 
 //подключение к бд
@@ -90,10 +101,6 @@ public class RegisterActivity extends AppCompatActivity {
                     contentValues.put("PASSWORD", userPassword);
                     contentValues.put("EMAIL", userEmailAddress);
                     contentValues.put("COUNTRY", userCountry);
-                    long i = database.insert("USER", null, contentValues);
-
-                    Log.i("TAG", "" + i);
-
 //                    database.insert("USER", null, contentValues);
 
                     database.close();
