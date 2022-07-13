@@ -74,6 +74,8 @@ public class RegisterActivity extends AppCompatActivity {
 //            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                ((MaterialAutoCompleteTextView) textInputLayout.getEditText()).setText(countries.get(i).getCountry_name());
 //            }
+
+        ///asdasda
 //        });
 
         AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
