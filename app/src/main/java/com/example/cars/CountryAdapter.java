@@ -19,8 +19,8 @@ public class CountryAdapter extends ArrayAdapter {
     private int layout;
     private ArrayList<Country> countryArrayList;
 
-    public CountryAdapter(@NonNull Context context, int resource, int textViewResourceId,ArrayList<Country> countries) {
-        super(context, resource, textViewResourceId,countries);
+    public CountryAdapter(@NonNull Context context, int resource,ArrayList<Country> countries) {
+        super(context, resource,countries);
         this.countryArrayList = countries;
         this.layout = resource;
         this.inflater = LayoutInflater.from(context);

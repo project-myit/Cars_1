@@ -66,12 +66,25 @@ public class RegisterActivity extends AppCompatActivity {
         ArrayList<Country> a = new ArrayList<>();
         a.add(new Country("ada", R.drawable.ic_launcher_background));
 
-        ArrayAdapter adapter = new CountryAdapter(getApplicationContext(), R.layout.list, R.id.list_1, countries);
+        ArrayAdapter adapter = new CountryAdapter(getApplicationContext(), R.layout.list, countries);
 
-        ((MaterialAutoCompleteTextView) textInputLayout.getEditText()).setAdapter(adapter);
-//        autoCompleteTextView.setAdapter(adapter);
-          Log.i("TAG","TEST");
+//        ((MaterialAutoCompleteTextView) textInputLayout.getEditText()).setAdapter(adapter);
+//        ((MaterialAutoCompleteTextView) textInputLayout.getEditText()).setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                ((MaterialAutoCompleteTextView) textInputLayout.getEditText()).setText(countries.get(i).getCountry_name());
+//            }
+//        });
 
+        AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                autoCompleteTextView.setText(countries.get(i).getCountry_name());
+            }
+        };
+
+        autoCompleteTextView.setOnItemClickListener(onItemClickListener);
+        autoCompleteTextView.setAdapter(adapter);
 
 
 //подключение к бд

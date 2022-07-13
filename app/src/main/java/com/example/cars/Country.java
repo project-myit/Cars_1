@@ -9,7 +9,6 @@ public class Country {
         this.country_name = country_name;
         this.imageResource = imageResource;
     }
-//jjjjjdjdjzxzxsdcv
     public String getCountry_name() {
         return country_name;
     }
