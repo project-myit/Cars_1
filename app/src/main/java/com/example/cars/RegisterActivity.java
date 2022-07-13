@@ -77,7 +77,6 @@ public class RegisterActivity extends AppCompatActivity {
 
 //        });
 
-        ///
 
         AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
             @Override
